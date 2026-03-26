@@ -1,0 +1,535 @@
+{
+	"info": {
+		"_postman_id": "f60291f5-e0b3-4fa6-8ce6-1da2e0c012e0",
+		"name": "ecommerce",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24446628"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "register user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Admin\",\r\n  \"email\": \"Admin@test.com\",\r\n  \"password\": \"Admin123456\",\r\n  \"role\": \"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"Admin@test.com\",\r\n  \"password\": \"Admin123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "test protected route",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5OWU2MmQyMjg3MjdlYWQ5NzRkODAyMyIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzcxOTg4NTAzLCJleHAiOjE3NzQ1ODA1MDN9.kVVOMdH7h3_LzT37Wa5Qy7mFxU6yq9JUsrTHHDzA9oI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/users/profile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"users",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "Create product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YTA2NmIwZjI0MDQxNjNhOGI5MGI5ZCIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc3MjIwOTQ0NSwiZXhwIjoxNzc0ODAxNDQ1fQ.WezJPkhNwJLEvcQTm9INd_CJaS79dncqbQVWXshM4rY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Laaa\",\r\n  \"description\": \"Condor\",\r\n  \"price\": 1000,\r\n  \"stock\": 10,\r\n  \"category\": \"Electronics\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all products",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5OWU2MmQyMjg3MjdlYWQ5NzRkODAyMyIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzcyMTIwMDc4LCJleHAiOjE3NzQ3MTIwNzh9.jBzP89Vh1cRKCur-hyAbciScMZBZKgaxsLlrcbvBgEs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get single product",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/products/69a06ef2b333847ae7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"products",
+								"69a06ef2b333847ae7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5OWU2MmQyMjg3MjdlYWQ5NzRkODAyMyIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzcyMDMwNzAyLCJleHAiOjE3NzQ2MjI3MDJ9.1EKTkkWWb2M_d37SvH2K4rHIMRYPQVXy_rOR5H9e9MM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"price\": 1400,\r\n  \"stock\": 8\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/products/699f0a2fae5609651a30c6e2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"products",
+								"699f0a2fae5609651a30c6e2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YTA2NmIwZjI0MDQxNjNhOGI5MGI5ZCIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc3MjEyMTc3NiwiZXhwIjoxNzc0NzEzNzc2fQ.HkdJXOmKyVJvpx_MYZaBLWdbA45YIDaNklTilEQm8Rw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/products/69a06f09b333847a2c059eea",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"products",
+								"69a06f09b333847a2c059eea"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "Create order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YTA2NmIwZjI0MDQxNjNhOGI5MGI5ZCIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc3MjgyNzQ0MiwiZXhwIjoxNzc1NDE5NDQyfQ.jmZsx7dtDN4foI2xh_rNy9dfO1woInYNWLROyVOfdJY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"orderItems\": [\r\n    {\r\n      \"product\": \"69a0716f76a92702e7655a24\",\r\n      \"quantity\": 2\r\n    }\r\n  ],\r\n  \"totalPrice\": 3000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Order by user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YTA2NmIwZjI0MDQxNjNhOGI5MGI5ZCIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc3MjgyNzQ0MiwiZXhwIjoxNzc1NDE5NDQyfQ.jmZsx7dtDN4foI2xh_rNy9dfO1woInYNWLROyVOfdJY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/orders/my-orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"orders",
+								"my-orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Admin Get All orders",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YTA2NmIwZjI0MDQxNjNhOGI5MGI5ZCIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc3MjgyNzQ0MiwiZXhwIjoxNzc1NDE5NDQyfQ.jmZsx7dtDN4foI2xh_rNy9dfO1woInYNWLROyVOfdJY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YTA2NmIwZjI0MDQxNjNhOGI5MGI5ZCIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc3MjgyNzQ0MiwiZXhwIjoxNzc1NDE5NDQyfQ.jmZsx7dtDN4foI2xh_rNy9dfO1woInYNWLROyVOfdJY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"status\": \"shipped\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/orders/69ab33b84fe89e6ed77d1a4e",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"orders",
+								"69ab33b84fe89e6ed77d1a4e"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pagination API",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/products?page=4&limit=3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"products"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "4"
+						},
+						{
+							"key": "limit",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search by product",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YTA2NmIwZjI0MDQxNjNhOGI5MGI5ZCIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc3MjIwOTcxNywiZXhwIjoxNzc0ODAxNzE3fQ.pl6MLs02Yp-8uzwFc1zbH-zeLJO_a8Z2QKC_u-nRTUc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/products?search=TV",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"products"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "TV"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sort",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/products?sort=price",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"products"
+					],
+					"query": [
+						{
+							"key": "sort",
+							"value": "price"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Filter product by category",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/products?category=Electronics",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"products"
+					],
+					"query": [
+						{
+							"key": "category",
+							"value": "Electronics"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
